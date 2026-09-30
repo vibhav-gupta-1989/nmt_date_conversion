@@ -42,7 +42,6 @@ The project covers:
 * Cross-entropy training
 * GPU acceleration with CUDA
 * Multiclass token-level accuracy evaluation
-* Learning-rate scheduling with `ReduceLROnPlateau`
 
 ## Dataset
 
@@ -51,7 +50,6 @@ The training, validation, and test datasets are generated randomly.
 | Dataset    | Samples |
 | ---------- | ------: |
 | Training   |  10,000 |
-| Validation |   1,000 |
 | Test       |   1,000 |
 
 Dates are generated for years between **1900 and 2025**, with valid days selected according to the number of days in each month.
@@ -179,7 +177,6 @@ Epochs: 5
 Optimizer: NAdam
 Loss: Cross Entropy
 Device: CUDA
-Learning-rate scheduler: ReduceLROnPlateau
 ```
 
 During training, the target sequence is shifted to implement teacher forcing:
@@ -193,13 +190,13 @@ Target sequence:       2006-09-30 </s>
 
 The model achieved the following token-level accuracy during training:
 
-| Epoch | Training Accuracy | Validation Accuracy | Training Loss |
-| ----: | ----------------: | ------------------: | ------------: |
-|     1 |            94.53% |             100.00% |        0.2814 |
-|     2 |           100.00% |             100.00% |        0.0012 |
-|     3 |           100.00% |             100.00% |        0.0005 |
-|     4 |           100.00% |             100.00% |        0.0003 |
-|     5 |           100.00% |             100.00% |        0.0002 |
+| Epoch | Training Accuracy | Training Loss |
+| ----: | ----------------: | ------------: |
+|     1 |            94.53% |        0.2814 |
+|     2 |           100.00% |        0.0012 |
+|     3 |           100.00% |        0.0005 |
+|     4 |           100.00% |        0.0003 |
+|     5 |           100.00% |        0.0002 |
 
 The final evaluation on the generated test set achieved:
 
@@ -285,7 +282,6 @@ This project demonstrates practical implementation of:
 * Teacher forcing
 * Multiclass cross-entropy loss
 * GPU-based model training
-* Learning-rate scheduling
 * Sequence translation using PyTorch
 
 ## Limitations
